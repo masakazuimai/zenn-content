@@ -96,15 +96,6 @@ function generateBadge(label: string, score: number): string {
 }
 ```
 
-## コストについて
-
-この機能の追加コストは**0円**です。
-
-| 項目 | コスト |
-|------|--------|
-| SVG生成 | Cloudflare Workers無料枠内 |
-| データ管理 | Cloudflare D1無料枠内 |
-| 外部API | なし |
 
 ## まとめ
 
