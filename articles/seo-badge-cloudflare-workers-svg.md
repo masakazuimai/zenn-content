@@ -1,109 +1,187 @@
 ---
-title: "自分のサイトのSEOスコアを「証明」できるバッジ機能を作った"
+title: "SEOスコアバッジをCloudflare Workers + SVG動的生成で実装した設計と判断"
 emoji: "🏅"
 type: "tech"
 topics: ["CloudflareWorkers", "Hono", "SVG", "SEO", "NextJS"]
 published: true
 ---
 
-## ポートフォリオに「SEO対策済み」と書くだけで信用されますか？
+## 作ったもの
 
-フリーランスのWeb制作者やディレクターなら、こんな経験があるはずです。
+サイトに埋め込めるSEOスコアバッジ。reCAPTCHAのようにサイト右下に常駐し、ホバーでスコアが展開、クリックで第三者検証ページに飛べます。
 
-- 「SEO対策やってます」と書いても、クライアントにはピンとこない
-- PageSpeed Insightsのスクショを貼っても、いつのデータか分からない
-- 自分のサイトのSEO品質を**客観的に証明する手段がない**
+[CodeQuest.work SEO_CHECK](https://seo.codequest.work) で85点以上を達成したドメインに発行されます。
 
-スクリーンショットは加工できるし、数値は自己申告。クライアントからすれば「本当に？」と思うのが自然です。
+この記事では、まず**コピペで動くミニマルなサンプル**を示した上で、実プロダクトで直面した**設計判断とトレードオフ**を解説します。
 
-そこで [CodeQuest.work SEO_CHECK](https://seo.codequest.work) に**埋め込みSEOバッジ**を追加しました。85点以上を達成したサイトに、第三者検証付きのバッジを表示できる機能です。
+## まず動かす：WorkersでSVGバッジを返すサンプル
 
-## どう使うのか
-
-### 1. SEOチェックで85点以上を達成
-
-まずは自分のサイトをチェック。45項目以上の診断で100点満点のスコアが出ます。
-
-### 2. ダッシュボードでバッジをONにする
-
-85点以上のドメインにはバッジ取得ボタンが表示されます。ONにすると埋め込みコードが発行されます。
-
-### 3. サイトにコードを貼るだけ
-
-発行されたHTMLをサイトに貼り付ければ完了。CSS込みのインラインスタイルなので、フレームワークやCSSライブラリへの依存はゼロです。
-
-## バッジの動作
-
-サイト右下にreCAPTCHAのようなフローティングバッジが表示されます。
-
-- **通常時**: 青いアイコン（「SEO」の文字入り）
-- **ホバー時**: 右にスライド展開して「SEO_CHECK ○○点」を表示
-- **クリック時**: 検証ページに遷移
-
-検証ページではドメイン・スコア・最終チェック日時が表示されるので、**スコアの信頼性をワンクリックで証明**できます。スクショと違って改ざんできません。
-
-## Web制作者はスキルの証明ができます。
-
-### 営業・提案時の信頼度が上がる
-
-「SEO対策やってます」ではなく、**リアルタイムで検証可能なスコア**をサイト上に提示できます。クライアントがバッジをクリックすれば、第三者ツールの検証ページで数値を確認できる。自己申告とは説得力が違います。
-
-### 複数サイトを個別に管理できる
-
-ドメイン毎にバッジを管理できるので、自社サイト・クライアントサイト・ポートフォリオなど、それぞれ個別にON/OFFが可能です。
-
-- ポートフォリオ → ON（実績アピール）
-- クライアントの本番サイト → 必要に応じてON/OFF
-- 開発中のサイト → OFF
-
-### コードの貼り替えなしでON/OFF
-
-ダッシュボードのトグルを切り替えるだけで、バッジの表示/非表示を制御できます。サーバー側でSVG画像を切り替える仕組みなので、一度貼ったコードはそのままです。
-
-## 技術的な仕組み（概要）
-
-裏側の仕組みも簡単に触れておきます。
-
-### SVG動的生成
-
-バッジ画像はCloudflare Workers上でSVGを動的に生成しています。テンプレートリテラルでXML文字列を組み立てるだけなので、画像処理ライブラリは不要です。
+Cloudflare Workersで動的にSVGバッジを生成する最小構成です。`wrangler init`後にそのまま貼れば動きます。
 
 ```typescript
-// イメージコード（実際の実装とは異なります）
+// src/index.ts — Honoで動くSVGバッジAPI
+import { Hono } from "hono"
 
-function generateBadge(label: string, score: number): string {
-  const color = score >= 90 ? "#4c1" : score >= 60 ? "#dfb317" : "#e05d44"
-  return `<svg ...>
-    <rect fill="#555"/>
-    <rect fill="${color}"/>
-    <text>${label}: ${score}</text>
+const app = new Hono()
+
+function badgeSvg(label: string, value: string, color: string): string {
+  const lw = label.length * 7 + 10
+  const vw = value.length * 7 + 10
+  const w = lw + vw
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="20">
+    <rect width="${lw}" height="20" fill="#555"/>
+    <rect x="${lw}" width="${vw}" height="20" fill="${color}"/>
+    <g fill="#fff" font-family="Verdana" font-size="11" text-anchor="middle">
+      <text x="${lw / 2}" y="14">${label}</text>
+      <text x="${lw + vw / 2}" y="14">${value}</text>
+    </g>
   </svg>`
 }
+
+app.get("/badge/:score", (c) => {
+  const score = Number(c.req.param("score"))
+  const color = score >= 90 ? "#4c1" : score >= 60 ? "#dfb317" : "#e05d44"
+  return c.body(badgeSvg("SEO Score", String(score), color), 200, {
+    "Content-Type": "image/svg+xml",
+    "Cache-Control": "public, max-age=3600",
+  })
+})
+
+export default app
 ```
 
-### ON/OFFの切り替え
+`curl localhost:8787/badge/92` でSVGが返ってきます。shields.ioと同じ見た目のバッジが、外部サービスなしで生成できます。
 
-バッジが無効の場合、APIは1x1の透明SVGを返します。同じURLで中身だけ変わるので、埋め込みコードの変更は不要です。
+これが基本形。ここから先が「実プロダクトでどう判断したか」の話です。
 
-### フローティングバッジ
+## 判断1：shields.io vs 自前生成
 
-埋め込みHTMLにはインラインCSSを含めているため、外部CSSファイルへの依存がありません。どんなサイトにもそのまま貼れます。ホバー時のスライド展開もCSSのみで実現しています。
+最初はshields.ioのエンドポイントを使う案もありました。
+
+| | shields.io | 自前生成 |
+|---|---|---|
+| 実装コスト | ほぼゼロ | SVGテンプレート作成が必要 |
+| 外部依存 | あり（ダウン時にバッジ消える） | なし |
+| カスタマイズ | 限定的 | 完全自由 |
+| レスポンス速度 | shields.io → Workers → ユーザー | Workers → ユーザー |
+
+**選んだのは自前生成**。理由は2つ。
+
+1. ユーザーのサイトに表示するバッジが外部サービス障害で消えるのは許容できない
+2. SVGはXML文字列なのでテンプレートリテラルで十分。ライブラリ不要で実装コストも低い
+
+shields.ioは素晴らしいサービスですが、「他人のサイトに埋め込まれるもの」に外部依存を入れるのはリスクが高すぎました。
+
+## 判断2：ON/OFFをどう実現するか
+
+ユーザーがダッシュボードからバッジを非公開にしたとき、2つの方法があります。
+
+**案A**: 埋め込みコードを2種類（公開用/非公開用）発行し、貼り替えてもらう
+
+**案B**: 同じURLのまま、APIが返すSVGを切り替える
+
+```typescript
+// 案Bの実装イメージ
+const TRANSPARENT = '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>'
+
+app.get("/image/:token.svg", async (c) => {
+  const badge = await db.findByToken(token)
+
+  if (!badge?.enabled) {
+    return c.body(TRANSPARENT, 200, { "Content-Type": "image/svg+xml" })
+  }
+
+  return c.body(badgeSvg("SEO Score", String(badge.score), color), 200, {
+    "Content-Type": "image/svg+xml",
+  })
+})
+```
+
+**選んだのは案B**。理由は明確で、ユーザーにHTMLの貼り替えを要求するのは現実的ではないからです。
+
+特にWordPressのテンプレートやフッターに埋め込んでいる場合、「OFFにしたいからコード差し替えてください」は手間がかかりすぎる。1x1の透明SVGを返せば、ブラウザ上では何も表示されません。
+
+### ハマりポイント：Cache-Controlとの戦い
+
+ここで問題が起きました。`Cache-Control: public, max-age=3600`を付けていたため、OFFにしてもCDNキャッシュが残っている間はバッジが表示され続けます。
+
+かといって`no-cache`にすると、人気サイトに埋め込まれた場合にWorkersへのリクエストが毎回走る。
+
+最終的には`max-age=300`（5分）に落ち着きました。ON/OFFの反映が5分遅延する代わりに、通常時のリクエスト数を抑える。ユーザーに「反映まで数分かかります」と伝えれば許容範囲です。
+
+## 判断3：1ユーザー1バッジ vs ドメイン毎
+
+最初は`users`テーブルに`badge_token`を1つ持つ設計でした。しかしすぐに問題が見えました。
+
+- Web制作者は複数サイトを運営している
+- クライアントサイトと自社サイトでON/OFFを分けたい
+- 最新チェックのスコアが別サイトのものに上書きされる
+
+そこで`domain_badges`テーブルを分離しました。
+
+```sql
+CREATE TABLE domain_badges (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    domain TEXT NOT NULL,
+    badge_token TEXT NOT NULL,
+    badge_enabled INTEGER DEFAULT 0,
+    latest_score INTEGER,
+    latest_checked_at DATETIME,
+    UNIQUE(user_id, domain)
+);
+```
+
+### トレードオフ：スコアをどこから取るか
+
+バッジ画像のリクエスト時に毎回`check_history`テーブルをJOINしてスコアを取る案と、`domain_badges.latest_score`にキャッシュしておく案。
+
+JOINの方がデータは常に最新ですが、バッジ画像は外部サイトから大量にリクエストされる可能性があります。D1のクエリ数を節約するため、キャッシュ方式を採用し、SEOチェック実行時に`latest_score`を更新する設計にしました。
+
+```typescript
+// チェック実行後にキャッシュを更新（イメージ）
+await db.prepare(
+  "UPDATE domain_badges SET latest_score = ?, latest_checked_at = CURRENT_TIMESTAMP WHERE user_id = ? AND domain = ?"
+).bind(score, userId, domain).run()
+```
+
+デメリットは「チェック実行」と「バッジ更新」が別々のタイミングになること。チェックルートにバッジ更新ロジックが混ざるので凝集度は下がりますが、パフォーマンスを優先しました。
+
+## 判断4：埋め込みHTMLの設計
+
+埋め込みコードをどう設計するか。3つの案がありました。
+
+| | `<img>`タグだけ | `<script>`埋め込み | HTML+インラインCSS |
+|---|---|---|---|
+| 導入の手軽さ | 最も簡単 | やや抵抗あり | 簡単 |
+| デザインの自由度 | なし | 高い | 中程度 |
+| セキュリティ懸念 | なし | 外部JS実行への抵抗 | なし |
+
+**選んだのはHTML+インラインCSS**。
+
+`<script>`は「他人のJSを自サイトで実行する」ことへの心理的抵抗が大きい。`<img>`だけだとフローティング表示やホバー展開ができない。HTML+インラインCSSなら、依存ゼロでデザインも実現でき、コードを読めば何をしているか一目瞭然です。
 
 ```css
-/* ホバーで展開する仕組み（イメージ） */
+/* ホバーでスライド展開するCSS */
 #seo-check-badge:hover #seo-badge-text {
-  max-width: 192px; /* 0px → 192px のtransitionで展開 */
+  max-width: 192px; /* 0 → 192px のtransitionで展開 */
 }
 ```
 
+CSSだけでアニメーションが完結するので、JSが無効な環境でも壊れません。
 
 ## まとめ
 
-- **85点以上**のSEOスコアを達成すると、サイトに埋め込めるバッジを取得できる
-- バッジクリックで**第三者検証ページ**に遷移し、スコアの信頼性を証明
-- **ドメイン毎**にON/OFFを管理、コードの貼り替えは不要
-- ポートフォリオや提案資料で**SEO品質を客観的にアピール**できる
+| 判断ポイント | 選択 | 理由 |
+|---|---|---|
+| バッジ生成 | 自前SVG | 外部依存排除 |
+| ON/OFF | 透明SVG差し替え | ユーザーのコード貼り替え不要 |
+| データ設計 | ドメイン毎テーブル | 複数サイト運営に対応 |
+| スコア取得 | キャッシュ | 外部リクエスト耐性 |
+| 埋め込み形式 | HTML+インラインCSS | JS不要・依存ゼロ |
 
-「SEO対策やってます」を数値で証明したいWeb制作者の方、まずは自分のサイトをチェックしてみてください。
+どれも「技術的に正しい方」ではなく「ユーザーにとって面倒が少ない方」を選んでいます。バッジは一度貼ったら忘れられるべきもので、運用コストをユーザーに転嫁しない設計が重要でした。
 
-**[CodeQuest.work SEO_CHECK](https://seo.codequest.work)**
+---
+
+この記事で紹介したバッジ機能は [CodeQuest.work SEO_CHECK](https://seo.codequest.work) で実際に使えます。85点以上を達成すると、ダッシュボードからバッジを取得できます。
