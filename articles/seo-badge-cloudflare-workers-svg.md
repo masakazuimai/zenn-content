@@ -1,197 +1,118 @@
 ---
-title: "SEOスコアバッジをCloudflare Workers + SVG動的生成で作った話"
+title: "自分のサイトのSEOスコアを「証明」できるバッジ機能を作った"
 emoji: "🏅"
 type: "tech"
 topics: ["CloudflareWorkers", "Hono", "SVG", "SEO", "NextJS"]
 published: true
 ---
 
-## はじめに --- 「SEOスコアを証明できないか？」
+## ポートフォリオに「SEO対策済み」と書くだけで信用されますか？
 
-SEO診断ツールを開発していて、ユーザーから「スコアをサイト上で見せたい」という声をもらいました。
+フリーランスのWeb制作者やディレクターなら、こんな経験があるはずです。
 
-Web制作者なら分かると思いますが、自分が手がけたサイトのSEO品質を**第三者ツールのスコアで証明できる**のは営業上かなり強い。Google PageSpeed Insightsのスコアをスクショで貼る人は多いですが、リアルタイムに検証可能なバッジとなると話は別です。
+- 「SEO対策やってます」と書いても、クライアントにはピンとこない
+- PageSpeed Insightsのスクショを貼っても、いつのデータか分からない
+- 自分のサイトのSEO品質を**客観的に証明する手段がない**
 
-そこで作ったのが、**85点以上を達成したサイトに埋め込めるSEOバッジ**です。reCAPTCHAのようにサイト右下にフローティング表示され、ホバーでスコアが展開、クリックで検証ページに飛べます。
+スクリーンショットは加工できるし、数値は自己申告。クライアントからすれば「本当に？」と思うのが自然です。
 
-この記事では、追加コスト0円で実現した技術的な仕組みを解説します。
+そこで [CodeQuest.work SEO_CHECK](https://seo.codequest.work) に**埋め込みSEOバッジ**を追加しました。85点以上を達成したサイトに、第三者検証付きのバッジを表示できる機能です。
 
-## 完成イメージ
+## どう使うのか
 
-サイト右下に青いアイコンが常駐し、ホバーすると右にスライド展開して「SEO_CHECK 92点」のように表示されます。reCAPTCHAバッジを見慣れている人なら、すぐにイメージできると思います。
+### 1. SEOチェックで85点以上を達成
 
-- **通常時**: 青いグラデーションの正方形アイコン（「SEO」の文字入り）
-- **ホバー時**: 右にスライドして白背景のテキストエリアが展開
-- **クリック時**: 検証ページに遷移（ドメイン・スコア・最終チェック日を表示）
+まずは自分のサイトをチェック。45項目以上の診断で100点満点のスコアが出ます。
 
-## アーキテクチャ
+### 2. ダッシュボードでバッジをONにする
 
-```
-[ユーザーのサイト]
-  └─ 埋め込みHTML（インラインCSS付き）
-       ├─ SVGバッジ画像 ← Cloudflare Workers で動的生成
-       └─ 検証リンク → /badge/verify/:token
+85点以上のドメインにはバッジ取得ボタンが表示されます。ONにすると埋め込みコードが発行されます。
 
-[管理側]
-  ├─ domain_badges テーブル（D1）
-  │    ├─ badge_token (UUID)
-  │    ├─ badge_enabled (0/1)
-  │    ├─ domain
-  │    └─ latest_score
-  └─ ダッシュボード（ON/OFF切り替え）
-```
+### 3. サイトにコードを貼るだけ
 
-ポイントは以下の3つです。
+発行されたHTMLをサイトに貼り付ければ完了。CSS込みのインラインスタイルなので、フレームワークやCSSライブラリへの依存はゼロです。
 
-1. **外部サービス不要**: shields.ioやBadgen等を使わず、Workers上でSVGを直接生成
-2. **サーバー側でON/OFF制御**: バッジを無効にすると1x1の透明SVGを返すだけ。埋め込みコードの貼り替え不要
-3. **ドメイン毎にトークン管理**: 複数サイトを運営しているユーザーに対応
+## バッジの動作
 
-## Workers上でSVGを動的生成する
+サイト右下にreCAPTCHAのようなフローティングバッジが表示されます。
 
-shields.ioスタイルのバッジをWorkers上で生成しています。HonoのルーティングでSVGを返すだけなので、非常にシンプルです。
+- **通常時**: 青いアイコン（「SEO」の文字入り）
+- **ホバー時**: 右にスライド展開して「SEO_CHECK ○○点」を表示
+- **クリック時**: 検証ページに遷移
+
+検証ページではドメイン・スコア・最終チェック日時が表示されるので、**スコアの信頼性をワンクリックで証明**できます。スクショと違って改ざんできません。
+
+## Web制作者にとって何が嬉しいのか
+
+### 営業・提案時の信頼度が上がる
+
+「SEO対策やってます」ではなく、**リアルタイムで検証可能なスコア**をサイト上に提示できます。クライアントがバッジをクリックすれば、第三者ツールの検証ページで数値を確認できる。自己申告とは説得力が違います。
+
+### 複数サイトを個別に管理できる
+
+ドメイン毎にバッジを管理できるので、自社サイト・クライアントサイト・ポートフォリオなど、それぞれ個別にON/OFFが可能です。
+
+- ポートフォリオ → ON（実績アピール）
+- クライアントの本番サイト → 必要に応じてON/OFF
+- 開発中のサイト → OFF
+
+### コードの貼り替えなしでON/OFF
+
+ダッシュボードのトグルを切り替えるだけで、バッジの表示/非表示を制御できます。サーバー側でSVG画像を切り替える仕組みなので、一度貼ったコードはそのままです。
+
+## 技術的な仕組み（概要）
+
+裏側の仕組みも簡単に触れておきます。
+
+### SVG動的生成
+
+バッジ画像はCloudflare Workers上でSVGを動的に生成しています。テンプレートリテラルでXML文字列を組み立てるだけなので、画像処理ライブラリは不要です。
 
 ```typescript
 // イメージコード（実際の実装とは異なります）
 
-/** スコアに応じた色を決定 */
-function getColor(score: number): string {
-  if (score >= 90) return "#4c1"
-  if (score >= 60) return "#dfb317"
-  return "#e05d44"
-}
-
-/** SVGバッジを文字列で生成 */
 function generateBadge(label: string, score: number): string {
-  const color = getColor(score)
-  // テンプレートリテラルでSVGを組み立て
-  return `<svg xmlns="http://www.w3.org/2000/svg" ...>
-    <rect ... fill="#555"/>        <!-- ラベル背景 -->
-    <rect ... fill="${color}"/>    <!-- スコア背景 -->
-    <text>${label}</text>
-    <text>${score}</text>
+  const color = score >= 90 ? "#4c1" : score >= 60 ? "#dfb317" : "#e05d44"
+  return `<svg ...>
+    <rect fill="#555"/>
+    <rect fill="${color}"/>
+    <text>${label}: ${score}</text>
   </svg>`
 }
 ```
 
-要点は、SVGがXML文字列なのでテンプレートリテラルで組み立てるだけということ。画像処理ライブラリもCanvasも不要で、Workersの無料プランでも余裕で動きます。
+### ON/OFFの切り替え
 
-## ON/OFFの仕組み --- 透明SVGで切り替える
+バッジが無効の場合、APIは1x1の透明SVGを返します。同じURLで中身だけ変わるので、埋め込みコードの変更は不要です。
 
-ユーザーがダッシュボードからバッジを無効にしたとき、埋め込みコードを差し替えてもらう必要はありません。APIが返すSVGを切り替えるだけです。
+### フローティングバッジ
 
-```typescript
-// イメージコード（実際の実装とは異なります）
+埋め込みHTMLにはインラインCSSを含めているため、外部CSSファイルへの依存がありません。どんなサイトにもそのまま貼れます。ホバー時のスライド展開もCSSのみで実現しています。
 
-app.get("/image/:token", async (c) => {
-  const badge = await db.findByToken(token)
-
-  // 無効 or スコアなし → 1x1透明SVG
-  if (!badge || !badge.enabled) {
-    return c.body(TRANSPARENT_SVG, 200, svgHeaders)
-  }
-
-  // 有効 → スコア入りSVGを返す
-  return c.body(generateBadge("SEO Score", badge.score), 200, svgHeaders)
-})
+```css
+/* ホバーで展開する仕組み（イメージ） */
+#seo-check-badge:hover #seo-badge-text {
+  max-width: 192px; /* 0px → 192px のtransitionで展開 */
+}
 ```
 
-考え方はシンプルで、`enabled`が`false`なら1x1の透明SVGを返すだけ。埋め込みコードは同じURLのままなので、ユーザーに貼り替えてもらう必要はありません。
+## コストについて
 
-## フローティングバッジのフロントエンド実装
-
-埋め込み先のサイトに貼るHTMLは、CSSをインラインで含めて依存ゼロにしています。ただし自サイト（Next.js）ではTailwind CSSで実装しています。
-
-```tsx
-// UIイメージ（実際の実装とは異なります）
-
-<a className="group fixed bottom-24 right-6 flex items-center h-14
-              transition-all duration-500">
-  {/* アイコン（常時表示） */}
-  <div className="w-14 h-14 rounded-xl group-hover:rounded-r-none
-                  bg-gradient-to-br from-[#1a32d0] to-[#3730a3]
-                  transition-all duration-500 ...">
-    <span className="text-white font-bold">SEO</span>
-  </div>
-  {/* 展開テキスト（ホバーで出現） */}
-  <div className="overflow-hidden w-0 group-hover:w-48
-                  transition-all duration-500">
-    <div className="bg-white border rounded-r-xl h-14 ...">
-      <span>SEO_CHECK</span>
-      <span className="text-blue-600 font-bold">{score}点</span>
-    </div>
-  </div>
-</a>
-```
-
-ポイントは`group-hover`でコンテナのホバー状態をトリガーにし、`w-0`→`w-48`のwidth transitionでスライド展開すること。JSでのアニメーション制御は不要です。
-
-## 検証ページでスコアの信頼性を担保する
-
-バッジをクリックすると `/badge/verify/:token` に遷移し、以下の情報を表示します。
-
-- 対象ドメイン
-- SEOスコア
-- 最終チェック日時
-
-APIから返すJSONはシンプルです。
-
-```typescript
-// イメージコード（実際の実装とは異なります）
-
-app.get("/verify/:token", async (c) => {
-  const badge = await db.findByToken(token)
-
-  if (!badge || !badge.enabled) {
-    return c.json({ valid: false })
-  }
-
-  return c.json({
-    valid: true,
-    domain: badge.domain,
-    score: badge.score,
-    checkedAt: badge.checkedAt,
-  })
-})
-```
-
-検証ページがあることで、スクリーンショットの偽造やスコアの詐称を防げます。「本当にこのスコアなの？」という疑問にワンクリックで答えられるのがポイントです。
-
-## なぜこの機能を作ったか（マーケティング的背景）
-
-技術的な話だけでなく、ビジネス上の狙いも書いておきます。
-
-**1. ユーザーの自発的な宣伝になる**
-
-バッジを埋め込んでくれたサイトは、そのまま当ツールの広告塔になります。85点以上という条件があるため、「高品質なサイトが使っているツール」というブランディングにもなります。
-
-**2. 85点の壁がモチベーションになる**
-
-「あと3点でバッジがもらえる」という状況は、追加の改善アクションを促します。結果としてツールの利用頻度が上がり、有料プランへの転換率も上がります。
-
-**3. 追加コストがほぼゼロ**
-
-SVGをテンプレートリテラルで生成するだけなので、画像処理サービスやCDNの追加コストは発生しません。D1のクエリもトークンでの単純な主キー検索なので、負荷も最小限です。
-
-## 運用コストまとめ
+この機能の追加コストは**0円**です。
 
 | 項目 | コスト |
 |------|--------|
 | SVG生成 | Cloudflare Workers無料枠内 |
 | データ管理 | Cloudflare D1無料枠内 |
-| CDN/キャッシュ | Cloudflare標準機能 |
 | 外部API | なし |
-| **合計** | **0円** |
 
 ## まとめ
 
-- Cloudflare Workers上でSVGをテンプレートリテラルで動的生成すれば、外部サービスなしでバッジ機能が作れる
-- ON/OFFは「スコア入りSVG vs 1x1透明SVG」の切り替えだけ。コードの貼り替え不要
-- 検証ページでスコアの信頼性を担保し、マーケティングツールとしても機能させる
-- 追加コスト0円で、ユーザーの自発的な宣伝を促す仕組みになる
+- **85点以上**のSEOスコアを達成すると、サイトに埋め込めるバッジを取得できる
+- バッジクリックで**第三者検証ページ**に遷移し、スコアの信頼性を証明
+- **ドメイン毎**にON/OFFを管理、コードの貼り替えは不要
+- ポートフォリオや提案資料で**SEO品質を客観的にアピール**できる
 
-Cloudflare Workers + D1の組み合わせは、この手の「軽いけど動的な機能」にぴったりです。同じようなバッジ機能を作りたい方の参考になれば幸いです。
+「SEO対策やってます」を数値で証明したいWeb制作者の方、まずは自分のサイトをチェックしてみてください。
 
----
-
-この記事で紹介したバッジ機能は [CodeQuest.work SEO_CHECK](https://seo.codequest.work) で実際に使えます。無料プランでもSEO診断は利用可能なので、まずは自分のサイトをチェックしてみてください。
+**[CodeQuest.work SEO_CHECK](https://seo.codequest.work)**
