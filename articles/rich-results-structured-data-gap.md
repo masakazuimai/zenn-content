@@ -177,4 +177,4 @@ const ArticlePage = ({ article }) => {
 ---
 
 **筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/) で活動中。
-[SEO CHECK](https://seo.codequest.work/) — 自作のSEO診断ツールも公開中。
+[SEO CHECK](https://seo.codequest.work/) — ディレクターも使っているSEO診断ツールを公開中。
