@@ -176,5 +176,5 @@ const ArticlePage = ({ article }) => {
 
 ---
 
-**SEO診断ツール**: [CodeQuest.work SEO_CHECK](https://seo.codequest.work/) — ディレクターも使っているSEO診断ツールを公開中。
+**SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work/) — RINIAディレクターツール。
 **制作・開発**: [CodeQuest.work](https://codequest.work/) — Web制作・SEO関連の技術情報サイト

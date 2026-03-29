@@ -178,5 +178,5 @@ llms.txtは、これらすべてに効く最もシンプルな施策です。ま
 
 ---
 
-**SEO診断ツール**: [CodeQuest.work SEO_CHECK](https://seo.codequest.work/) — llms.txtのチェック・自動生成にも対応したSEO診断ツールを公開中。
+**SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work/) — RINIAディレクターツール。
 **制作・開発**: [CodeQuest.work](https://codequest.work/) — Web制作・SEO関連の技術情報サイト
