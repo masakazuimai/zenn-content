@@ -162,3 +162,8 @@ function checkGoogleMap(html: string) {
 - 納品前チェックリストとして使えば、**手戻り防止と品質アピール**の両方に効く
 
 [CodeQuest.work SEO_CHECK](https://seo.codequest.work) のSEO診断にローカルSEO診断セクションを追加しました。URLを入力するだけで5項目を一括チェックできます。地域ビジネスのサイト制作に関わる方は、ぜひ試してみてください。
+
+---
+
+**SEO診断ツール**: [CodeQuest.work SEO_CHECK](https://seo.codequest.work)
+**制作・開発**: [CodeQuest.work](https://codequest.work/) — Web制作・SEO関連の技術情報サイト
