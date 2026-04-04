@@ -165,5 +165,5 @@ function checkGoogleMap(html: string) {
 
 ---
 
-**SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work) — RINIAディレクターツール。
-**制作・開発**: [CodeQuest.work](https://codequest.work/) — Web制作・SEO関連の技術情報サイト
+**SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=local-seo-diagnosis-website-check) — RINIAディレクターツール。
+**制作・開発**: [CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=local-seo-diagnosis-website-check) — Web制作・SEO関連の技術情報サイト

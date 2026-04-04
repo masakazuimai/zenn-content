@@ -178,5 +178,5 @@ llms.txtは、これらすべてに効く最もシンプルな施策です。ま
 
 ---
 
-**SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work/) — RINIAディレクターツール。
-**制作・開発**: [CodeQuest.work](https://codequest.work/) — Web制作・SEO関連の技術情報サイト
+**SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=llms-txt-ai-search-detection) — RINIAディレクターツール。
+**制作・開発**: [CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=llms-txt-ai-search-detection) — Web制作・SEO関連の技術情報サイト

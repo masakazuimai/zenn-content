@@ -186,5 +186,5 @@ CSSだけでアニメーションが完結するので、JSが無効な環境で
 
 この記事で紹介したバッジ機能は [CodeQuest.work SEO_CHECK](https://seo.codequest.work) で実際に使えます。85点以上を達成すると、ダッシュボードからバッジを取得できます。
 
-**SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work) — RINIAディレクターツール。
-**制作・開発**: [CodeQuest.work](https://codequest.work/) — Web制作・SEO関連の技術情報サイト
+**SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-badge-cloudflare-workers-svg) — RINIAディレクターツール。
+**制作・開発**: [CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-badge-cloudflare-workers-svg) — Web制作・SEO関連の技術情報サイト

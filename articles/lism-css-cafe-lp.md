@@ -288,5 +288,5 @@ https://github.com/masakazuimai/Copying_practice/tree/main/advanced/007
 
 ---
 
-**筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/) で活動中。
-[SEO CHECK](https://seo.codequest.work/) — ディレクターも使っているSEO診断ツールを公開中。
+**筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=lism-css-cafe-lp) で活動中。
+[SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=lism-css-cafe-lp) — ディレクターも使っているSEO診断ツールを公開中。
