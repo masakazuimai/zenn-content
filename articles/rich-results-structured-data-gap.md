@@ -3,7 +3,7 @@ title: "Googleのリッチリザルトに出るサイトと出ないサイト、
 emoji: "⭐"
 type: "tech"
 topics: ["SEO", "構造化データ", "JSON-LD", "Google", "NextJS"]
-published: false
+published: true
 ---
 
 ## はじめに — 同じ1位でもクリック率が違う
