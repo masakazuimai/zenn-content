@@ -152,7 +152,7 @@ const extractSchemaTypes = (html: string): string[] => {
 
 1サイトのチェックだけでも大変なのに、競合と比較するとなると工数は倍以上です。
 
-筆者は [SEO CHECK](https://seo.codequest.work/) を使って、まず自社サイトのスコアを把握し、同じツールで競合サイトも診断して差分を確認しています。URLを入れるだけで45項目以上のチェックが走るので、比較の起点として便利です。
+筆者は [SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=competitor-seo-score-gap) を使って、まず自社サイトのスコアを把握し、同じツールで競合サイトも診断して差分を確認しています。URLを入れるだけで45項目以上のチェックが走るので、比較の起点として便利です。
 
 ## 競合分析で意識すべきこと
 

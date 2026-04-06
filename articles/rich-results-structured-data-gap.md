@@ -162,7 +162,7 @@ const ArticlePage = ({ article }) => {
 4. **Organization / LocalBusiness** — ブランド検索のナレッジパネル表示
 5. **Product** — ECサイトなら最優先
 
-「自分のサイトにどのスキーマが必要で、正しく設定されているか」を一括で確認できると効率的です。筆者は [SEO CHECK](https://seo.codequest.work/) で構造化データの検出・必須プロパティのチェック・スキーマタイプの判定を自動化しています。構造化データだけで40点満点の診断カテゴリになっているので、かなり詳しく見てくれます。
+「自分のサイトにどのスキーマが必要で、正しく設定されているか」を一括で確認できると効率的です。筆者は [SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=rich-results-structured-data-gap) で構造化データの検出・必須プロパティのチェック・スキーマタイプの判定を自動化しています。構造化データだけで40点満点の診断カテゴリになっているので、かなり詳しく見てくれます。
 
 ## まとめ
 

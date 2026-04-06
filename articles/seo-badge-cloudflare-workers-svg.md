@@ -10,7 +10,7 @@ published: true
 
 サイトに埋め込めるSEOスコアバッジ。reCAPTCHAのようにサイト右下に常駐し、ホバーでスコアが展開、クリックで第三者検証ページに飛べます。
 
-[CodeQuest.work SEO_CHECK](https://seo.codequest.work) で85点以上を達成したドメインに発行されます。
+[CodeQuest.work SEO_CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-badge-cloudflare-workers-svg) で85点以上を達成したドメインに発行されます。
 
 この記事では、まず**コピペで動くミニマルなサンプル**を示した上で、実プロダクトで直面した**設計判断とトレードオフ**を解説します。
 
@@ -184,7 +184,7 @@ CSSだけでアニメーションが完結するので、JSが無効な環境で
 
 ---
 
-この記事で紹介したバッジ機能は [CodeQuest.work SEO_CHECK](https://seo.codequest.work) で実際に使えます。85点以上を達成すると、ダッシュボードからバッジを取得できます。
+この記事で紹介したバッジ機能は [CodeQuest.work SEO_CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-badge-cloudflare-workers-svg) で実際に使えます。85点以上を達成すると、ダッシュボードからバッジを取得できます。
 
 **SEOスコアチェックツール**: [SEO_CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-badge-cloudflare-workers-svg) — RINIAディレクターツール。
 **制作・開発**: [CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-badge-cloudflare-workers-svg) — Web制作・SEO関連の技術情報サイト

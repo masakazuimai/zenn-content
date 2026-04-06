@@ -136,7 +136,7 @@ www有無、末尾スラッシュの有無、httpとhttpsの混在 — これら
 
 これを毎回手動でやるのは現実的ではありません。
 
-筆者は自作の [SEO CHECK](https://seo.codequest.work/) で、URLを入れるだけで45項目以上を一括チェックしています。納品前の最終確認として使うと、抜け漏れを防げます。
+筆者は自作の [SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-check-before-client-delivery) で、URLを入れるだけで45項目以上を一括チェックしています。納品前の最終確認として使うと、抜け漏れを防げます。
 
 ## 納品フローに組み込むのがベスト
 

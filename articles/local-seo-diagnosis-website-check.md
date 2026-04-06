@@ -161,7 +161,7 @@ function checkGoogleMap(html: string) {
 - 手動確認は手間がかかるので、自動チェックをワークフローに組み込むと効率的
 - 納品前チェックリストとして使えば、**手戻り防止と品質アピール**の両方に効く
 
-[CodeQuest.work SEO_CHECK](https://seo.codequest.work) のSEO診断にローカルSEO診断セクションを追加しました。URLを入力するだけで5項目を一括チェックできます。地域ビジネスのサイト制作に関わる方は、ぜひ試してみてください。
+[CodeQuest.work SEO_CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=local-seo-diagnosis-website-check) のSEO診断にローカルSEO診断セクションを追加しました。URLを入力するだけで5項目を一括チェックできます。地域ビジネスのサイト制作に関わる方は、ぜひ試してみてください。
 
 ---
 

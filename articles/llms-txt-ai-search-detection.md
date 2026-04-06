@@ -159,7 +159,7 @@ llms.txtの仕様自体はシンプルですが、実際に書こうとすると
 
 手動で書くと「とりあえず主要ページを3つ並べただけ」になりがちで、十分な効果を発揮できません。
 
-サイトの構造を分析して必要な情報を網羅したllms.txtを作成するには、**サイト全体の診断結果をもとに自動生成する**のが確実です。筆者が開発した[SEO CHECK](https://seo.codequest.work/ja/llms-txt-check)では、URLを入力するだけでllms.txtのチェックと推奨テンプレートの自動生成ができます。
+サイトの構造を分析して必要な情報を網羅したllms.txtを作成するには、**サイト全体の診断結果をもとに自動生成する**のが確実です。筆者が開発した[SEO CHECK](https://seo.codequest.work/ja/llms-txt-check?utm_source=zenn&utm_medium=article&utm_campaign=llms-txt-ai-search-detection)では、URLを入力するだけでllms.txtのチェックと推奨テンプレートの自動生成ができます。
 
 ## GEO・AIO・LLMO — 知っておくべき新しいSEO用語
 

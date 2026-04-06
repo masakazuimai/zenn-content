@@ -157,7 +157,7 @@ CWVの計測自体は上記のコードで可能です。しかし、**スコア
 - CLSが高いのはどの要素が原因？
 - 他のSEO項目は問題ないか？
 
-CWVだけ改善しても、メタタグや構造化データが抜けていたら意味がありません。筆者は [SEO CHECK](https://seo.codequest.work/) でCWVを含む45項目以上を一括チェックし、どこから手をつけるべきかの優先順位を判断しています。
+CWVだけ改善しても、メタタグや構造化データが抜けていたら意味がありません。筆者は [SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=core-web-vitals-impact-and-fix) でCWVを含む45項目以上を一括チェックし、どこから手をつけるべきかの優先順位を判断しています。
 
 ## まとめ
 
