@@ -1,7 +1,7 @@
 ---
 title: "「Sonnetで十分」が罠だった — Claude Codeで本当に安く開発する方法"
 emoji: "💰"
-type: "idea"
+type: "tech"
 topics: ["claudecode", "anthropic", "ai", "生産性", "コスト削減"]
 published: true
 ---
