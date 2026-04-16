@@ -28,10 +28,20 @@ publish_date: 2026-04-18
 - 記事は必ず `published: false` + `publish_date: YYYY-MM-DD` で作成する
 - GitHub Actions（`.github/workflows/scheduled-publish.yml`）が毎朝JST 7:00に実行され、当日以前の`publish_date`の記事を自動公開する
 - 公開日の決め方:
-  - **前回の公開日から3日以上空ける**（1日2記事以上はスパム扱いのリスク）
+  - **前回のZenn公開日から3日以上空ける**（1日2記事以上はスパム扱いのリスク）
   - 既存の予約記事と重複しないよう、先に `grep -r 'publish_date:' articles/` で確認する
 - 即時公開したい場合は `published: true` にして `publish_date` を付けずにpushする
-- Qiitaと同じ記事を書く場合、**同じ日に公開する**（Zenn/Qiitaで1記事ずつ = 合計2記事/日）
+
+### Qiita同時運用ルール（Zenn→Qiita 24時間オフセット）
+- **Zenn/Qiita両方に同じ記事を出す場合、両方とも`publish_date`を同じ日付にする**
+- Zennは`publish_date`当日、Qiitaは翌日に自動公開される（Qiita workflowが自動で+1日オフセット）
+- これにより初動バズ（Zenn）→ 検索じわじわ流入（Qiita）の順で効果最大化
+
+### UTM命名規則（集客計測）
+- 記事内リンクには必ずUTMを付与する
+- フォーマット: `?utm_source=zenn&utm_medium=article&utm_campaign=記事スラッグ`
+- `記事スラッグ` は記事ファイル名（拡張子なし）と一致させる
+- 例: `team-board-supabase-storage-file-upload.md` → `utm_campaign=team-board-supabase-storage-file-upload`
 
 ### 記事構成パターン
 1. **tech記事** — 技術的な実装・設計の解説。コード例を含む
@@ -45,8 +55,8 @@ publish_date: 2026-04-18
 ```markdown
 ---
 
-**筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/) で活動中。
-[SEO CHECK](https://seo.codequest.work/) — ディレクターも使っているSEO診断ツールを公開中。
+**筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=記事スラッグ) で活動中。
+[SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=記事スラッグ) — ディレクターも使っているSEO診断ツールを公開中。
 ```
 
 ### 文体・スタイル
