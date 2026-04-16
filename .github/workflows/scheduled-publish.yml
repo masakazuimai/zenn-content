@@ -1,61 +1,53 @@
-name: 予約公開
+name: Scheduled Publish
 
 on:
   schedule:
-    # 毎日 JST 9:00（UTC 0:00）に実行
     - cron: '0 0 * * *'
-  workflow_dispatch: # 手動実行も可能
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  scheduled_publish:
+  publish:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: 公開予約日が来た記事を published: true にする
+      - name: Publish scheduled articles
+        id: publish
         run: |
           TODAY=$(TZ=Asia/Tokyo date +%Y-%m-%d)
-          echo "今日の日付: $TODAY"
+          echo "Today: $TODAY"
           CHANGED=false
 
           for file in articles/*.md; do
             [ -f "$file" ] || continue
 
-            # publish_date フィールドを取得
-            PUBLISH_DATE=$(grep -m1 '^publish_date:' "$file" | sed 's/publish_date: *"\{0,1\}\([0-9-]*\)"\{0,1\}/\1/' | tr -d ' ')
+            PUBLISH_DATE=$(grep -m1 '^publish_date:' "$file" | sed 's/publish_date: *//;s/"//g;s/ //g')
             [ -z "$PUBLISH_DATE" ] && continue
 
-            # published: false の記事のみ対象
             grep -q '^published: false' "$file" || continue
 
-            # 公開日が今日以前なら公開
-            if [ "$PUBLISH_DATE" \<= "$TODAY" ] 2>/dev/null || [ "$PUBLISH_DATE" = "$TODAY" ]; then
-              echo "公開: $file (予約日: $PUBLISH_DATE)"
+            if [ "$PUBLISH_DATE" \< "$TODAY" ] || [ "$PUBLISH_DATE" = "$TODAY" ]; then
+              echo "Publishing: $file (date: $PUBLISH_DATE)"
               sed -i 's/^published: false/published: true/' "$file"
-              # publish_date 行を削除（公開済みなので不要）
               sed -i '/^publish_date:/d' "$file"
               CHANGED=true
             else
-              echo "スキップ: $file (予約日: $PUBLISH_DATE > $TODAY)"
+              echo "Skipping: $file (date: $PUBLISH_DATE > $TODAY)"
             fi
           done
 
           echo "changed=$CHANGED" >> "$GITHUB_OUTPUT"
-        id: publish
 
-      - name: 変更をコミット＆プッシュ
+      - name: Commit and push
         if: steps.publish.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add articles/*.md
-          git commit -m "予約公開: $(TZ=Asia/Tokyo date +%Y-%m-%d) の記事を公開
-
-          Co-Authored-By: GitHub Actions <noreply@github.com>"
+          git diff --cached --quiet && exit 0
+          git commit -m "Scheduled publish: $(TZ=Asia/Tokyo date +%Y-%m-%d)"
           git push
