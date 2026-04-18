@@ -1,5 +1,5 @@
 ---
-title: "チャットアプリのURL共有と未読管理を改善した実装 — iOS対応の落とし穴"
+title: "チームボード開発記 #5 — URL共有と未読管理を改善した実装（iOS対応の落とし穴）"
 emoji: "🔗"
 type: "tech"
 topics: ["React", "TypeScript", "UX", "チャットアプリ", "NextJS"]

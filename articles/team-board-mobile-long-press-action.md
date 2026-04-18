@@ -1,5 +1,5 @@
 ---
-title: "Reactで長押しアクションシートを実装する — スマホチャットアプリのUX改善"
+title: "チームボード開発記 #3 — Reactで長押しアクションシートを実装する（スマホUX改善）"
 emoji: "📱"
 type: "tech"
 topics: ["React", "TypeScript", "モバイル", "UX", "PWA"]

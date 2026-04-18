@@ -1,5 +1,5 @@
 ---
-title: "Supabase Storageでチャットアプリにファイル添付を実装した話 — 日本語ファイル名の罠と自動クリーンアップ"
+title: "チームボード開発記 #2 — Supabase Storageでファイル添付を実装した話（日本語ファイル名の罠）"
 emoji: "📎"
 type: "tech"
 topics: ["Supabase", "NextJS", "TypeScript", "ファイルアップロード", "個人開発"]

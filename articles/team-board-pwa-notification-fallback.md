@@ -1,5 +1,5 @@
 ---
-title: "PWAプッシュ通知が届かない問題を解決した — フォールバック設計と2重通知の罠"
+title: "チームボード開発記 #4 — PWAプッシュ通知が届かない問題を解決した（フォールバック設計）"
 emoji: "🔔"
 type: "tech"
 topics: ["PWA", "ServiceWorker", "WebPush", "NextJS", "TypeScript"]

@@ -1,5 +1,5 @@
 ---
-title: "Slackの代わりに自社チームボードをNext.js + Supabaseで作った話"
+title: "チームボード開発記 #1 — Next.js + SupabaseでSlackの代わりを自作した話"
 emoji: "💬"
 type: "tech"
 topics: ["NextJS", "Supabase", "チーム開発", "リアルタイム", "PWA"]
