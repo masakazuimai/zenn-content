@@ -8,7 +8,7 @@ published: true
 
 ## はじめに
 
-2025年、Googleが「GEO Partner Manager」という職種の求人を公開しました。
+2026年、Googleが「GEO Partner Manager」という職種の求人を公開しました。
 
 GEOとは **Generative Engine Optimization（生成エンジン最適化）** の略。AIが生成する検索結果に、自社の情報を引用させるための最適化手法です。
 
