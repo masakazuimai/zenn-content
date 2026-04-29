@@ -3,8 +3,7 @@ title: "Next.js + @react-pdf/renderer で日本語PDFレポートを生成する
 emoji: "📄"
 type: "tech"
 topics: ["nextjs", "react", "typescript", "pdf"]
-published: false
-publish_date: 2026-04-30
+published: true
 ---
 
 ## はじめに
