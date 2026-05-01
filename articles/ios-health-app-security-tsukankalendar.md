@@ -10,7 +10,7 @@ published: true
 
 痛風・高尿酸血症の食事管理に特化したiOSアプリ「痛風管理（TsuKanCalendar）」を個人開発しています。健康データを扱うアプリは攻撃対象になりやすく、個人開発でもセキュリティ設計は避けて通れません。
 
-https://codequest.work/gout-app-tsukankalendar-v200/
+https://codequest.work/gout-app-tsukankalendar-v200/?utm_source=zenn&utm_medium=article&utm_campaign=ios-health-app-security-tsukankalendar
 
 この記事では、約2,600行・18ファイルのSwiftUIアプリで実践した**9つのセキュリティ設計判断**を、実コードとともに解説します。
 

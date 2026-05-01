@@ -101,5 +101,5 @@ AI検索時代の集客は、「いくら払えるか」ではなく **「何を
 ---
 
 :::message
-この記事の詳細版は [CodeQuest.work](https://codequest.work/) で公開しています。SEO+AEO+LLMOの具体的な実装方法や、構造化データの設定手順も解説しています。
+この記事の詳細版は [CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=ads-vs-seo-aeo-llmo-ai-era) で公開しています。SEO+AEO+LLMOの具体的な実装方法や、構造化データの設定手順も解説しています。
 :::

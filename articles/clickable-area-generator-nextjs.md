@@ -10,7 +10,7 @@ published: true
 
 画像にクリッカブルエリア（リンク領域）を視覚的に設定して、**レスポンシブ対応のHTMLコードを自動生成**する無料ツールを作りました。
 
-https://codequest.work/generator/clickable-area/
+https://codequest.work/generator/clickable-area/?utm_source=zenn&utm_medium=article&utm_campaign=clickable-area-generator-nextjs
 
 ## なぜ作ったか
 
@@ -167,11 +167,11 @@ const style = {
 
 ツールはこちらから無料で使えます。
 
-https://codequest.work/generator/clickable-area/
+https://codequest.work/generator/clickable-area/?utm_source=zenn&utm_medium=article&utm_campaign=clickable-area-generator-nextjs
 
 他にもCSS GridやFlexboxのジェネレーターなども公開しています。
 
-https://codequest.work/tag/generator/
+https://codequest.work/tag/generator/?utm_source=zenn&utm_medium=article&utm_campaign=clickable-area-generator-nextjs
 
 ---
 
