@@ -1,7 +1,7 @@
 ---
 title: "自社SEOツールの20項目設計をAIO時代に検証してみた"
 emoji: "🔬"
-type: "tech"
+type: "idea"
 topics: ["SEO", "AI", "GoogleSearch", "構造化データ", "個人開発"]
 published: true
 ---
