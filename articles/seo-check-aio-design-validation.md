@@ -1,5 +1,5 @@
 ---
-title: "自社SEOツールの20項目設計をAIO時代に検証してみた"
+title: "自社SEOツールの45項目設計をAIO時代に検証してみた"
 emoji: "🔬"
 type: "idea"
 topics: ["SEO", "AI", "GoogleSearch", "構造化データ", "個人開発"]
@@ -12,7 +12,7 @@ Google検索結果の上部にAIが生成した回答が表示される「AI Ove
 
 これまで「検索1位を取ればクリックされる」が常識でしたが、Ahrefsの調査では**AIOが表示されると1位のCTRが58%低下**するというデータが出ています。
 
-SEOの前提が変わるなら、SEOツールの設計前提も見直す必要があります。そこで、自分が開発・運営しているSEOチェックツール（20項目・100点満点）の設計が、AIO時代にまだ有効なのかを外部データで検証してみました。
+SEOの前提が変わるなら、SEOツールの設計前提も見直す必要があります。そこで、自分が開発・運営しているSEOチェックツール（45項目・100点満点）の設計が、AIO時代にまだ有効なのかを外部データで検証してみました。
 
 ## SEO_CHECKの3つの設計前提
 
@@ -143,4 +143,4 @@ SEO_CHECKで高スコアを取ることはAIO引用の**必要条件に近いが
 ---
 
 **筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-check-aio-design-validation) で活動中。
-[SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-check-aio-design-validation) — この記事で検証したSEO診断ツールを無料公開中。URLを入れるだけで20項目・100点満点で診断できます。
+[SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=seo-check-aio-design-validation) — この記事で検証したSEO診断ツールを無料公開中。URLを入れるだけで45項目・100点満点で診断できます。
