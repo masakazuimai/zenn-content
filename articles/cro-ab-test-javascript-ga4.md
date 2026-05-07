@@ -123,7 +123,8 @@ const ctaButton = document.querySelector('.cta-button');
 
 if (variant === 'B') {
   ctaButton.textContent = '無料で相談する';
-}```
+}
+```
 
 ### GA4でバリアント別にイベントを送信する
 
@@ -142,7 +143,8 @@ ctaButton.addEventListener('click', () => {
     test_name: 'cta_text_2024',
     variant: variant
   });
-});```
+});
+```
 
 GA4の探索レポートで `test_name` と `variant` をディメンションに設定すれば、バリアント別のCVRを比較できます。
 

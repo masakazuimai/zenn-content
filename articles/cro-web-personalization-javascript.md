@@ -57,7 +57,8 @@ function personalizeBySource() {
   }
 }
 
-personalizeBySource();```
+personalizeBySource();
+```
 
 参考: [URLSearchParams - MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/API/URLSearchParams)
 
@@ -83,7 +84,8 @@ if (visitCount === 1) {
 } else if (visitCount >= 3) {
   // 3回目以降: 直接的なCTAを表示
   document.querySelector('.returning-cta').style.display = 'block';
-}```
+}
+```
 
 参考: [Web Storage API - MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
 
@@ -115,7 +117,8 @@ function getRecommendedCategory() {
   return Object.entries(frequency)
     .sort((a, b) => b[1] - a[1])
     .map(entry => entry[0])[0] || null;
-}```
+}
+```
 
 ---
 

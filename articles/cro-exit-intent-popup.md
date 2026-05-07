@@ -42,7 +42,8 @@ function initExitIntent(callback) {
   setTimeout(() => {
     document.addEventListener('mouseleave', handleMouseLeave);
   }, 5000);
-}```
+}
+```
 
 参考: [mouseleave イベント - MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/API/Element/mouseleave_event)
 
@@ -68,7 +69,8 @@ function shouldShowPopup(popupId, intervalDays) {
 
 function markPopupShown(popupId) {
   localStorage.setItem(`exit_popup_${popupId}`, String(Date.now()));
-}```
+}
+```
 
 参考: [Web Storage API - MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
 
@@ -82,7 +84,8 @@ HTML5の`<dialog>`要素を使えば、アクセシビリティに配慮した�
   <p>今なら無料で資料をダウンロードできます。</p>
   <a href="/download" class="cta-button">無料ダウンロード</a>
   <button onclick="this.closest('dialog').close()">閉じる</button>
-</dialog>```
+</dialog>
+```
 
 ```javascript
 initExitIntent(() => {
@@ -91,7 +94,8 @@ initExitIntent(() => {
     markPopupShown('lead-magnet');
     gtag('event', 'exit_popup_shown', { popup_id: 'lead-magnet' });
   }
-});```
+});
+```
 
 参考: [dialog要素 - MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/HTML/Element/dialog)
 

@@ -71,7 +71,8 @@ document.querySelectorAll('[data-cta-track]').forEach(button => {
       cta_location: button.dataset.ctaTrack
     });
   });
-});```
+});
+```
 
 参考: [GA4 イベントを送信する - Google Developers](https://developers.google.com/analytics/devguides/collection/ga4/events)
 

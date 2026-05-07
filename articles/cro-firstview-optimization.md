@@ -63,7 +63,8 @@ Googleの調査によると、ページの読み込みが1秒から3秒に増え
   </style>
   <link rel="preload" href="/css/main.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
-</head>```
+</head>
+```
 
 参考: [クリティカルCSSの抽出 - web.dev](https://web.dev/articles/extract-critical-css)
 
@@ -80,7 +81,8 @@ Googleの調査によると、ページの読み込みが1秒から3秒に増え
   loading="eager"
   fetchpriority="high"
   decoding="async"
->```
+>
+```
 
 - `loading="eager"`: ファーストビュー画像は遅延読み込みしない
 - `fetchpriority="high"`: ブラウザに優先的な読み込みを指示
