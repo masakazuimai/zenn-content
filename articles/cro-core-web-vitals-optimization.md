@@ -4,7 +4,7 @@ emoji: "⚡"
 type: "tech"
 topics: ["performance", "javascript", "css", "html", "seo"]
 published: true
-published_at: "2026-05-17 09:00"
+published_at: "2026-05-16 09:00"
 ---
 
 ページ速度改善とは、Webページの表示速度を最適化してユーザー体験とコンバージョン率を向上させるCRO施策です。Googleの調査によると、ページの読み込みが1秒から3秒に増えると直帰率が32%増加し、5秒では90%増加します。

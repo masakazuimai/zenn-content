@@ -4,7 +4,7 @@ emoji: "✍️"
 type: "tech"
 topics: ["ux", "cro", "marketing", "design", "webdev"]
 published: true
-published_at: "2026-05-15 09:00"
+published_at: "2026-05-14 09:00"
 ---
 
 マイクロコピーとは、CTAボタンの文言、フォームのラベル、エラーメッセージなど、UIに含まれる短いテキストのことです。Unbounceの調査によると、CTAボタンのテキスト変更だけでCVRが最大90%改善した事例があります。
