@@ -4,7 +4,6 @@ emoji: "🔬"
 type: "tech"
 topics: ["javascript", "ga4", "cro", "webdev", "frontend"]
 published: true
-published_at: "2026-05-11 09:00"
 ---
 
 ABテストとは、Webページの要素を2パターン用意し、ユーザーをランダムに振り分けて成果を比較する改善手法です。有料ツールを使わなくても、JavaScriptとGA4だけで実装できます。
