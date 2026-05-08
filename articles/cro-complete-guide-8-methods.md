@@ -4,7 +4,6 @@ emoji: "📊"
 type: "tech"
 topics: ["cro", "javascript", "webdev", "marketing", "frontend"]
 published: false
-published_at: "2026-05-19 09:00"
 ---
 
 CRO（Conversion Rate Optimization）とは、Webサイトのコンバージョン率を改善するための施策全般を指します。広告やSEOで集客を増やすのではなく、今あるアクセスからの成果を最大化するアプローチです。

@@ -4,7 +4,6 @@ emoji: "👁️"
 type: "tech"
 topics: ["css", "performance", "cro", "webdev", "frontend"]
 published: false
-published_at: "2026-05-15 09:00"
 ---
 
 ファーストビュー改善とは、スクロールせずに見える領域（Above the Fold）を最適化し、ユーザーの離脱を防ぐCRO施策です。Nielsen Norman Groupの調査によると、ユーザーの閲覧時間の57%がファーストビュー内に集中しています。

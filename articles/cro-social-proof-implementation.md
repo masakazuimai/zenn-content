@@ -4,7 +4,6 @@ emoji: "⭐"
 type: "tech"
 topics: ["css", "javascript", "cro", "ux", "animation"]
 published: false
-published_at: "2026-05-17 09:00"
 ---
 
 ソーシャルプルーフ（社会的証明）とは、他者の行動や評価を見て自分の判断の参考にする心理効果を活用したCRO施策です。BrightLocalの調査（2024年）によると、消費者の87%がオンラインレビューを購入前に確認しています。

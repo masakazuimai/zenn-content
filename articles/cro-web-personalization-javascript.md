@@ -4,7 +4,6 @@ emoji: "🎯"
 type: "tech"
 topics: ["javascript", "cro", "marketing", "webdev", "frontend"]
 published: false
-published_at: "2026-05-18 09:00"
 ---
 
 Webパーソナライズとは、ユーザーの属性や行動に基づいて表示内容を動的に変更するCRO施策です。McKinseyの調査（2023年）によると、パーソナライズを実施している企業はそうでない企業と比較して売上が40%高い傾向にあります。

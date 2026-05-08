@@ -4,7 +4,6 @@ emoji: "📝"
 type: "tech"
 topics: ["javascript", "html", "form", "cro", "ux"]
 published: false
-published_at: "2026-05-12 09:00"
 ---
 
 EFO（Entry Form Optimization）とは、問い合わせフォームや申し込みフォームの入力完了率を高める施策です。フォームはコンバージョンの最終関門であり、Baymard Instituteの調査（2024年）によるとECサイトのカート離脱率は平均70.19%に達しています。

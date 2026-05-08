@@ -4,7 +4,6 @@ emoji: "🚪"
 type: "tech"
 topics: ["javascript", "html", "cro", "ux", "frontend"]
 published: false
-published_at: "2026-05-13 09:00"
 ---
 
 離脱防止ポップアップとは、ユーザーがページを閉じようとした瞬間にオファーやメッセージを表示し、離脱を防ぐCRO施策です。exit-intentと呼ばれるマウスの動きをJavaScriptで検出して実装します。
