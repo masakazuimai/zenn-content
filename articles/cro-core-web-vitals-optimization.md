@@ -3,7 +3,7 @@ title: "Core Web Vitals（LCP・INP・CLS）をコードで改善する実践ガ
 emoji: "⚡"
 type: "tech"
 topics: ["performance", "javascript", "css", "html", "seo"]
-published: true
+published: false
 published_at: "2026-05-16 09:00"
 ---
 

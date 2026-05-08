@@ -3,7 +3,7 @@ title: "フォーム離脱率を下げるEFO実装ガイド — HTML5 API＋Java
 emoji: "📝"
 type: "tech"
 topics: ["javascript", "html", "form", "cro", "ux"]
-published: true
+published: false
 published_at: "2026-05-12 09:00"
 ---
 

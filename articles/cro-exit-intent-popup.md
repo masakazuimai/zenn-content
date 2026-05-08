@@ -3,7 +3,7 @@ title: "離脱防止ポップアップをexit-intent＋dialog要素でコード�
 emoji: "🚪"
 type: "tech"
 topics: ["javascript", "html", "cro", "ux", "frontend"]
-published: true
+published: false
 published_at: "2026-05-13 09:00"
 ---
 
