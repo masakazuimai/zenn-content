@@ -6,7 +6,7 @@ topics: ["SEO", "構造化データ", "AI", "GoogleSearch", "個人開発"]
 published: true
 ---
 
-## オーガニック圏外でもAIOに引用される現象
+## オーガニック圏外でもAIOに引用される現象とは
 
 Google検索で「seo スコア チェック 無料」と入力すると、AI Overview（AIO）の回答欄に自分が運営するSEOツールが1番目に引用されていました。
 
