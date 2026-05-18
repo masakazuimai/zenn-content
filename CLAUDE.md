@@ -32,6 +32,12 @@ publish_date: 2026-04-18
   - 既存の予約記事と重複しないよう、先に `grep -r 'publish_date:' articles/` で確認する
 - 即時公開したい場合は `published: true` にして `publish_date` を付けずにpushする
 
+### 公開数の制限（Zenn・Qiita共通・必須）
+- **1回のデプロイ/プッシュで公開する新規記事は必ず1本まで**
+- Zennは直近24時間で5本以上の新規記事公開でレートリミットが発動し、デプロイがブロックされる
+- 一括アップは禁止。複数記事を公開したい場合は `publish_date` を1日以上ずらして1本ずつ公開する
+- Qiitaも同様に1本ずつ公開する（一括投稿はスパム判定リスク）
+
 ### Qiita同時運用ルール（Zenn→Qiita 24時間オフセット）
 - **Zenn/Qiita両方に同じ記事を出す場合、両方とも`publish_date`を同じ日付にする**
 - Zennは`publish_date`当日、Qiitaは翌日に自動公開される（Qiita workflowが自動で+1日オフセット）
