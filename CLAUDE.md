@@ -4,7 +4,7 @@
 Zenn記事を通じて以下2サイトへの集客を行うコンテンツマーケティングリポジトリ。
 
 ### 集客先
-- **SEO CHECK**: https://seo.codequest.work — 無料SEO診断ツール（45項目チェック、サイト全体診断、改善コード自動生成）
+- **Direbase（ディレベース）**: https://seo.codequest.work — 無料SEO診断ツール（45項目チェック、サイト全体診断、改善コード自動生成）
 - **CodeQuest.work**: https://codequest.work — Web制作・SEOツール開発のフリーランスサイト
 
 ### 筆者プロフィール
@@ -65,14 +65,14 @@ publish_date: 2026-04-18
 
 ### CTA（集客導線）ルール
 - 記事末尾に必ず筆者紹介 + サービスリンクを配置
-- 記事内容に関連する場合のみ、本文中でも自然にSEO CHECKに言及してよい
+- 記事内容に関連する場合のみ、本文中でも自然にDirebaseに言及してよい
 - 押し売りにならないよう、あくまで「使ったツール」「関連ツール」として紹介
 - フォーマット:
 ```markdown
 ---
 
 **筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=記事スラッグ) で活動中。
-[SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=記事スラッグ) — ディレクターも使っているSEO診断ツールを公開中。
+[Direbase（ディレベース）](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=記事スラッグ) — ディレクターも使っているSEO診断ツールを公開中。
 ```
 
 ### 文体・スタイル

@@ -254,6 +254,6 @@ UIでは警告行を出しますが、**APIが返す説明文にも同じ趣旨�
 ---
 
 **筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=prompt-injection-tool-output-llms-txt) で活動中。
-[SEO CHECK](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=prompt-injection-tool-output-llms-txt) — ディレクターも使っているSEO診断ツールを公開中。隠しテキスト・AI宛て指示文の検出は全プランに含まれています。
+[Direbase（ディレベース）](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=prompt-injection-tool-output-llms-txt) — ディレクターも使っているSEO診断ツールを公開中。隠しテキスト・AI宛て指示文の検出は全プランに含まれています。
 
 この記事の元になった検証の詳細は[こちら](https://seo.codequest.work/ja/blog/seo-auto-fix-risk-report?utm_source=zenn&utm_medium=article&utm_campaign=prompt-injection-tool-output-llms-txt)にまとめています。
