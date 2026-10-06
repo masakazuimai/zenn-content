@@ -3,8 +3,7 @@ title: "4択の暗記ツールにSM-2を入れなかった理由 — 間隔反�
 emoji: "🗂️"
 type: "tech"
 topics: ["javascript", "アルゴリズム", "個人開発", "学習", "設計"]
-published: false
-publish_date: 2026-10-06
+published: true
 ---
 
 4択問題を自分で作って、覚えるまで出題するブラウザの暗記ツールを作りました。
