@@ -127,6 +127,8 @@ COMMAND DECK から指示を出すと、毎回まっさらな新しい会話が�
 
 AIに任せる範囲を広げるほど、人間に必要なのは「全部を見ること」ではなく「**自分が判断すべきところだけを見ること**」だと感じています。同じように Claude Code を何本も走らせている方の参考になればうれしいです。
 
+公式の agent view（`claude agents`）との使い分けや、状態の分け方・確認ポイントまで含めた設計の全体は「[Claude Codeで複数プロジェクトを管理する｜AIと人間の共同管理ダッシュボード](https://codequest.work/claude-code-multi-project-dashboard/?utm_source=zenn&utm_medium=article&utm_campaign=claude-code-command-deck-human-ai)」にまとめています。
+
 ---
 
 **筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=claude-code-command-deck-human-ai) で活動中。
