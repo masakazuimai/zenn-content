@@ -152,7 +152,7 @@ MCPは、対話しながら形を試す段階に向いています。ただし�
 - 動きを減らす設定の人には、再生位置を最後に送って完成形から見せる
 - Blenderの (x, y, z) は three.js では (x, z, -y)
 
-Blender側のglb書き出し手順、three.jsで再生する最小コード、書き出しでつまずく点は、本体の記事にまとめています。
+Blender側のglb書き出し手順、three.jsで再生する最小コード、書き出しでつまずく点は、本体の記事で詳しく解説しています。
 
 https://codequest.work/claude-code-blender-glb-threejs/?utm_source=zenn&utm_medium=article&utm_campaign=blender-glb-browser-role-split
 
