@@ -177,7 +177,7 @@ https://zenn.dev/orectic/articles/claude-code-hooks-guard-examples
 
 この記事の分け方（索引・引き継ぎ・個別の知識）は、個人の値を抜いて、AI組織キットというテンプレートに入れています。Claude Code を役割を分けて毎日回すための、決まり・部署の定義・定期実行の型をまとめた筆者の有料の商品です（Anthropic の公式品ではありません）。
 
-https://kit.orecticdesign.com/z
+https://kit.orecticdesign.com/z3
 
 この記事の書き方だけでも、同じ形は作れます。まずは `HANDOVER.md` から済んだ行を消すところから試してみてください。
 
