@@ -3,8 +3,7 @@ title: "Claude Code自動化の実例｜定期実行48本とサブエージェ�
 emoji: "🏢"
 type: "idea"
 topics: ["claudecode", "ai", "自動化", "agent", "launchd"]
-published: false
-publish_date: 2026-11-16
+published: true
 ---
 
 ## はじめに
