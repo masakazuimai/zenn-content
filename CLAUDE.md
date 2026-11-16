@@ -28,7 +28,7 @@ publish_date: 2026-04-18
 - 記事は必ず `published: false` + `publish_date: YYYY-MM-DD` で作成する
 - GitHub Actions（`.github/workflows/scheduled-publish.yml`）が毎朝JST 7:00に実行され、当日以前の`publish_date`の記事を自動公開する
 - 公開日の決め方:
-  - **前回のZenn公開日から3日以上空ける**（1日2記事以上はスパム扱いのリスク）
+  - **Zenn には投稿数の上限がある**。24時間に何本も push すると止められる（2026-11-17 に公開1本＋予約2本の push のあと、議事録の記事が止められた）。「3日以上空ける」決まりは 2026-11-17 CEO「前の公開から3日以上ルールは削除」→ 選択式で「上限の注意に書き換える」で外した
   - 既存の予約記事と重複しないよう、先に `grep -r 'publish_date:' articles/` で確認する
 - 即時公開したい場合は `published: true` にして `publish_date` を付けずにpushする
 
