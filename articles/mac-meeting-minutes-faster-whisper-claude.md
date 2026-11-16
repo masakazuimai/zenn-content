@@ -3,7 +3,7 @@ title: "Mac だけで会議の議事録を作る｜ScreenCaptureKit で録音・
 emoji: "🎙️"
 type: "tech"
 topics: ["macos", "swift", "whisper", "python", "claudecode"]
-published: false
+published: true
 ---
 
 ## はじめに
