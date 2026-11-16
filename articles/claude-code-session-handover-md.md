@@ -183,5 +183,5 @@ https://kit.orecticdesign.com/z3
 
 ---
 
-**筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=claude-code-session-handover) で活動中。
-[Direbase（ディレベース）](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=claude-code-session-handover) — ディレクターも使っているSEO診断ツールを公開中。
+**筆者について：** Web制作・SEOツール開発を行うフリーランス。[CodeQuest.work](https://codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=claude-code-session-handover-md) で活動中。
+[Direbase（ディレベース）](https://seo.codequest.work/?utm_source=zenn&utm_medium=article&utm_campaign=claude-code-session-handover-md) — ディレクターも使っているSEO診断ツールを公開中。
