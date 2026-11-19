@@ -3,8 +3,7 @@ title: "Claude Code の hooks 実例｜危ないコマンドの確認・push 前
 emoji: "🪝"
 type: "tech"
 topics: ["claudecode", "ai", "hooks", "python", "git"]
-published: false
-publish_date: 2026-11-19
+published: true
 ---
 
 ## はじめに
