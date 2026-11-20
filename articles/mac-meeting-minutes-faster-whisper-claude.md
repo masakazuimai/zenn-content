@@ -1,9 +1,9 @@
 ---
-title: "Mac だけで会議の議事録を作る｜ScreenCaptureKit で録音・faster-whisper で文字起こし・claude -p でまとめ"
+title: "Mac だけで会議の議事録を作る｜ScreenCaptureKit で録音・faster-whisper・claude -p"
 emoji: "🎙️"
 type: "tech"
 topics: ["macos", "swift", "whisper", "python", "claudecode"]
-published: true
+published: false
 ---
 
 ## はじめに
