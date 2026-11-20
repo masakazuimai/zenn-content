@@ -3,7 +3,7 @@ title: "RealityKitで玉の仕掛けゲームを作った：10倍の大きさと
 emoji: "🔔"
 type: "tech"
 topics: ["realitykit", "swift", "ios", "swiftui", "gamedev"]
-published: false
+published: true
 ---
 
 RealityKit の物理で、ドミノ・坂・振り子・ベルを玉でつなぐゲームを作るとき、つまずきやすい点は3つでした。
