@@ -3,8 +3,7 @@ title: "Claude Code で会話をまたいでも忘れない引き継ぎの書き
 emoji: "📒"
 type: "idea"
 topics: ["claudecode", "ai", "生産性", "ドキュメント", "agent"]
-published: false
-publish_date: 2026-11-22
+published: true
 ---
 
 ## はじめに
