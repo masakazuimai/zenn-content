@@ -3,8 +3,7 @@ title: "AIにGIFを作らせて分かった、コマ数の決め方とCSSに任�
 emoji: "🎞️"
 type: "tech"
 topics: ["gif", "ai", "画像生成", "svg", "webパフォーマンス"]
-published: false
-publish_date: 2026-11-24
+published: true
 ---
 
 画像生成AIに GIF アニメを直接書き出させる機能が出てきました。2026年11月4日に OpenAI が公開した Images 2.6 は GIF で動きを付けられ、同じモデル（GPT Image 2.6）は AI 動画サービスの DomoAI でも、コマ数と1コマの表示時間を数字で決めて書き出せます。
