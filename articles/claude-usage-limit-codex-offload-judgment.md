@@ -3,8 +3,7 @@ title: "Claudeの週の使用量が91%に達して、記事制作のどこをCod
 emoji: "📝"
 type: "tech"
 topics: ["claudecode", "codex", "chatgpt", "ai", "自動化"]
-published: false
-publish_date: 2026-11-26
+published: true
 ---
 
 夜と朝に動かす作業が残っているのに、Claude の週の使用量はもう91%でした。記事を書くために資料を読み始める前に、どの工程なら手持ちの ChatGPT プランに含まれる Codex で進められるかを考えました。
