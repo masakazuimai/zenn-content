@@ -3,8 +3,7 @@ title: "PHPを更新してphp -vも新しいのに、Webは古い版を返して
 emoji: "🐘"
 type: "tech"
 topics: ["php", "phpfpm", "nginx", "security", "docker"]
-published: false
-publish_date: 2026-11-28
+published: true
 ---
 
 2026年10月21日の PHP2Shell（CVE-2026-109618・CVE-2026-109619）と、11月19日のセキュリティリリースが続きました。サーバーの PHP を上げて `php -v` に新しい版が出れば、それで済んだと思いがちです。ところが Docker で確かめると、ディスクの PHP は新しいのに、Web からのリクエストには古い PHP が答えている状態を作れました。
